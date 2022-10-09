@@ -1,0 +1,26 @@
+<h1>Add/Edit</h1>
+<span class="p-float-label">
+    <input id="float-input-display-name" type="text" pInputText [(ngModel)]="feature.displayName">
+    <label for="float-input-display-name">Display name</label>
+</span>
+<span class="p-float-label">
+    <input id="float-input-technical-name" type="text" pInputText [(ngModel)]="feature.technicalName">
+    <label for="float-input-technical-name">Technical name</label>
+</span>
+<span class="p-float-label">
+    <textarea id="float-text-area-description" pInputTextarea [(ngModel)]="feature.description"></textarea>
+    <label for="float-text-area-description">Description</label>
+</span>
+<div class="p-float-label">
+  <p-calendar id="float-calendar-expiration-date" [(ngModel)]="feature.expirationDate" [showTime]="true" [showSeconds]="true" inputId="time"></p-calendar>
+  <label for="float-calendar-expiration-date">Expiration date</label>
+</div>
+<div>
+  <p-inputSwitch id="toggle-active" [(ngModel)]="feature.status.selected"></p-inputSwitch>
+  <label for="toggle-active">Active</label>
+</div>
+<div>
+  <p-multiSelect id="multi-select-users" [options]="people" [(ngModel)]="feature.peopleIds"  defaultLabel="Add users" optionLabel="email" optionValue="id"></p-multiSelect>
+</div>
+<br />
+<p-button class="app-feature-toggle__button--submit" label="Save" (click)="save(feature)"></p-button>

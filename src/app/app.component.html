@@ -1,0 +1,13 @@
+<div class="app-feature-toggle">
+  <div *ngIf="!isFormVisible">
+    <h1>Feature Toggles</h1>
+    <app-feature-toggle-table [features]="activeFeatures" (archiveFeature)="handleArchiveClick($event)"></app-feature-toggle-table>
+    <p-button class="app-feature-toggle__button--submit" label="Add" (click)="handleAddClick()"></p-button>
+
+    <h1>Archived Feature Toggles</h1>
+    <app-feature-toggle-table [features]="inactiveFeatures"></app-feature-toggle-table>
+  </div>
+  <div *ngIf="isFormVisible">
+    <app-edit-feature-toggle-form [feature]="feature" (submit)="handleSubmit()"></app-edit-feature-toggle-form>
+  </div>
+</div>

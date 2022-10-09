@@ -1,0 +1,28 @@
+<p-table [value]="features" responsiveLayout="scroll">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Name</th>
+      <th>Technical Name</th>
+      <th>Expiration Date</th>
+      <th>Description</th>
+      <th>Active</th>
+      <th>Customers</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-feature>
+    <tr>
+      <td>{{feature.displayName}}</td>
+      <td>{{feature.technicalName}}</td>
+      <td>{{feature.expirationDate | date:'medium'}}</td>
+      <td>{{feature.description}}</td>
+      <td>{{feature.status.selected}}</td>
+      <td>{{feature.peopleIds}}</td>
+      <td> <p-button class="app-feature-toggle__button--submit" label="Edit" (click)="editToggle(feature)"></p-button></td>
+      <td *ngIf="!feature.status.archived"> <p-button class="app-feature-toggle__button--submit" label="Archive" (click)="archiveToggle(feature)"></p-button></td>
+      <td *ngIf="feature.status.archived"></td>
+    </tr>
+  </ng-template>
+</p-table>
+
